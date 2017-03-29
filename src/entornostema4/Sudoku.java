@@ -12,8 +12,11 @@ import java.util.Random;
  *
  * @author ICC-ICZ
  */
-public class Sudoku {
 
+public class Sudoku {
+/**
+ * Variables privadas de clase
+ */
 
     private int fila;
     private int columna;
@@ -21,7 +24,9 @@ public class Sudoku {
     private boolean resultado;
     private ArrayList<ArrayList<Integer>> lista;
     private Random aleatorio;
-
+/**
+ * Constructor por defecto
+ */
     public Sudoku() {
 
         fila = 9;
@@ -32,7 +37,10 @@ public class Sudoku {
         aleatorio = new Random();
 
     }
-
+/**
+ * Metodo inciciar
+ * @throws SudokuException 
+ */
     public void inicializar() throws SudokuException {
         {
             lista = new ArrayList<>();
@@ -67,7 +75,10 @@ public class Sudoku {
 
         }
     }
-
+/**
+ * To string
+ * @return 
+ */
     @Override
     public String toString() {
         String resultadoFinal = "";
@@ -92,7 +103,13 @@ public class Sudoku {
     }
 
     
-
+/**
+ * Comprobar fila
+ * @param fila
+ * @param elemento
+ * @return
+ * @throws SudokuException 
+ */
     private boolean comprobarFila(int fila, int elemento) throws SudokuException {
         boolean resultado = true;
         try {
@@ -109,7 +126,13 @@ public class Sudoku {
 
         return resultado;
     }
-
+/**
+ * Comprobar columna
+ * @param columna
+ * @param elemento
+ * @return
+ * @throws SudokuException 
+ */
     private boolean comprobarColumna(int columna, int elemento) throws SudokuException {
         boolean resultado = true;
         try {
@@ -125,7 +148,14 @@ public class Sudoku {
         }
         return resultado;
     }
-
+/**
+ * comprobar cuadrante
+ * @param fila
+ * @param columna
+ * @param elemento
+ * @return
+ * @throws SudokuException 
+ */
     private boolean comprobarCuadrante(int fila, int columna, int elemento) throws SudokuException {
         boolean resultado = true;
         int c_1 = 0;
@@ -188,7 +218,14 @@ public class Sudoku {
         }
         return resultado;
     }
-
+/**
+ * Metodo insertar
+ * @param fila
+ * @param columna
+ * @param elemento
+ * @return
+ * @throws SudokuException 
+ */
     private boolean puedoInsertar(int fila, int columna, int elemento) throws SudokuException {
         boolean resultado = false;
         
@@ -213,9 +250,22 @@ public class Sudoku {
         return resultado;
     }
 
+    /**
+     * Metodo modificar elemento
+     * @param fila
+     * @param columna
+     * @param elemento
+     * @throws SudokuException 
+     */
     public void modificarElemento(int fila, int columna, int elemento) throws SudokuException {
       
     }
+    /**
+     * Metodo vaciar casilla
+     * @param fila
+     * @param columna
+     * @throws SudokuException 
+     */
     public void vaciarElemento(int fila, int columna) throws SudokuException {
         try {
             lista.get(fila-1).set(columna-1,0);
